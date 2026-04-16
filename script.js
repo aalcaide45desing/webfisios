@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
+    const dropdowns = document.querySelectorAll('.dropdown');
     
     // Toggle del menú en dispositivos móviles
     hamburger.addEventListener('click', function() {
@@ -54,5 +55,22 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         lastScrollTop = scrollTop;
+    });
+    
+    // Manejar menús desplegables en dispositivos móviles
+    dropdowns.forEach(dropdown => {
+        const dropdownLink = dropdown.querySelector('.nav-link');
+        
+        dropdownLink.addEventListener('click', function(e) {
+            // Solo prevenir el comportamiento por defecto si no es un enlace real
+            if (this.getAttribute('href') === '#') {
+                e.preventDefault();
+            }
+            
+            // En móviles, hacer toggle del menú desplegable
+            if (window.innerWidth <= 600) {
+                dropdown.classList.toggle('active-dropdown');
+            }
+        });
     });
 });
