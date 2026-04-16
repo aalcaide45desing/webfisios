@@ -22,12 +22,14 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
+    min-height: 80px; /* Altura fija para evitar cambios al cargar */
 }
 
 /* Logo izquierdo */
 .logo img {
     height: 50px;
     width: auto;
+    max-height: 50px; /* Asegurar altura consistente */
 }
 
 /* Navbar centrada */
@@ -190,6 +192,7 @@ body {
     width: auto;
     border-radius: 50%;
     border: 2px solid #007bff;
+    max-height: 60px; /* Asegurar altura consistente */
 }
 
 /* Botón hamburger para mobile */
